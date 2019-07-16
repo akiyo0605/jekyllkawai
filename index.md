@@ -1,6 +1,19 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: Home
 ---
+
+<h1>{{ "Hello World!" | downcase }}</h1>
+
+<h1> Category List </h1>
+
+{% for category in site.categories %}
+<h3>{{ category[0] }}</h3>
+<ul>
+  {% for post in category[1] %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endfor %}
+  
+
