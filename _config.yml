@@ -1,7 +1,8 @@
 title: jekyllkawai
-description: >- 
+description: >
+  hi
 baseurl: "/jekyllkawai"
-url: "http://akiyo0605.github.io"
+url: "https://akiyo0605.github.io"
 
 # Build settings
 markdown: kramdown
