@@ -95,6 +95,24 @@ slab
 完全結晶のそれとの差から表面積で割れば，
 表面エネルギーが算出できる.
 
+O32
+===
+
+-   欠陥位相図の概要とその応用
+
+　keyword... defect phase diagrams(欠陥位相図), densty functional
+theory(密度汎関数理論)
+
+1.  収差において多大な進歩は，正確になった透過型電子顕微鏡と断層アトムプローブは，断層や結晶粒界や界面のような拡張欠陥で形成される原子分解段階や相転移においての体現的学術の機会を広げた．
+2.  共通の予想や実験，学説とは対照的に，より多くのスピノダル分解とバルク相としての熱力学的に不安定な欠陥の周りに形成のできるような空間的に分解された段階の高められた分離を導きうるような複雑な挙動を示す．
+3.  第一原理計算と同様に経験ポテンシャル使って，熱力学的概念と一緒に我々は欠陥位相図の構築を可能にする骨組みを開発し始めました．
+4.  現在において我々は基本的概念における概要や複雑なシミュレーションプロトコルのタイプや，それらを処理するために我々が開発したツールや，それと同様に，断層や結晶粒界工学や水素脆化などの最近の応用を提示するだろう．
+
+結晶粒界
+--------
+
+　
+
 memo
 ====
 
@@ -122,44 +140,61 @@ O32コピーして読む jekyll
 inner~relax~ '-15 -17 -19' '0'
 ==============================
 
-\[kawai@asura0 3315\]\$ inner~relax~ '-15 -17 -19' '0'
-"/home/kawai/bin/vasp~templatesnew~" \["-15", "-17", "-19"\] \["0"\]
-"inner~relax-150~" \[19.8145937137, 0.0, 0.0\] " 16.842404656644998
-0.0000000000 0.0000000000\n" \[0.0, 10.3035887311, 0.0\] " 0.0000000000
-10.3035887311 0.0000000000\n" cp POSCAR~tmp~ inner~relax-150~/POSCAR cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~50~ inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~relax~ inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix100~.sh inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/POTCAR inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax2nd~.sh inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix50~.sh inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax1st~.sh inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~100~ inner~relax-150~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~fix~ inner~relax-150~
-"inner~relax-170~" \[19.8145937137, 0.0, 0.0\] " 16.446112782371
-0.0000000000 0.0000000000\n" \[0.0, 10.3035887311, 0.0\] " 0.0000000000
-10.3035887311 0.0000000000\n" cp POSCAR~tmp~ inner~relax-170~/POSCAR cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~50~ inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~relax~ inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix100~.sh inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/POTCAR inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax2nd~.sh inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix50~.sh inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax1st~.sh inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~100~ inner~relax-170~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~fix~ inner~relax-170~
-"inner~relax-190~" \[19.8145937137, 0.0, 0.0\] " 16.049820908097
-0.0000000000 0.0000000000\n" \[0.0, 10.3035887311, 0.0\] " 0.0000000000
-10.3035887311 0.0000000000\n" cp POSCAR~tmp~ inner~relax-190~/POSCAR cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~50~ inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~relax~ inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix100~.sh inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/POTCAR inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax2nd~.sh inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/run~fix50~.sh inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/run~relax1st~.sh inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/KPOINTS~100~ inner~relax-190~ cp
-/home/kawai/bin/vasp~templatesnew~/INCAR~fix~ inner~relax-190~
+``` {.ruby}
+#!/urs/bin/env ruby
+
+
+[kawai@asura0 3315]$ inner_relax '-15 -17 -19' '0'
+"/home/kawai/bin/vasp_templates_new"
+["-15", "-17", "-19"]
+["0"]
+"inner_relax_-15_0"
+[19.8145937137, 0.0, 0.0]
+"  16.842404656644998    0.0000000000    0.0000000000\n"
+[0.0, 10.3035887311, 0.0]
+"   0.0000000000   10.3035887311    0.0000000000\n"
+cp POSCAR_tmp inner_relax_-15_0/POSCAR
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_50 inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_relax inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_100.sh inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/POTCAR inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_2nd.sh inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_50.sh inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_1st.sh inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_100 inner_relax_-15_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_fix inner_relax_-15_0
+"inner_relax_-17_0"
+[19.8145937137, 0.0, 0.0]
+"  16.446112782371    0.0000000000    0.0000000000\n"
+[0.0, 10.3035887311, 0.0]
+"   0.0000000000   10.3035887311    0.0000000000\n"
+cp POSCAR_tmp inner_relax_-17_0/POSCAR
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_50 inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_relax inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_100.sh inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/POTCAR inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_2nd.sh inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_50.sh inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_1st.sh inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_100 inner_relax_-17_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_fix inner_relax_-17_0
+"inner_relax_-19_0"
+[19.8145937137, 0.0, 0.0]
+"  16.049820908097    0.0000000000    0.0000000000\n"
+[0.0, 10.3035887311, 0.0]
+"   0.0000000000   10.3035887311    0.0000000000\n"
+cp POSCAR_tmp inner_relax_-19_0/POSCAR
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_50 inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_relax inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_100.sh inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/POTCAR inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_2nd.sh inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/run_fix_50.sh inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/run_relax_1st.sh inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/KPOINTS_100 inner_relax_-19_0
+cp /home/kawai/bin/vasp_templates_new/INCAR_fix inner_relax_-19_0 
+
+```
 
 cat inner~relax-150~/run~relax2nd~.sh
 =====================================
@@ -202,3 +237,5 @@ fix~200~:= \[\] ;
 
 question
 ========
+
+ユニットセル

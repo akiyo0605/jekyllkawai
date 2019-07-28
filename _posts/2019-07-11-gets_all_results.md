@@ -1,3 +1,7 @@
+-.14676684E+03
+
+-146.76684
+
 > ``` {.example}
 > require 'pp'  
 > require 'scanf'

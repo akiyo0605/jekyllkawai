@@ -17,6 +17,8 @@ line: result
 
 3: File.joinでファイルを結合する
 
+３行目よりSUBMIT~JOBSFILEにHOMEとvaspsubmitjobs~.textを繋げる
+
     #!/usr/bin/env ruby
     dirs = ARGV[0]
     if dirs == nil
@@ -25,6 +27,9 @@ line: result
     end
 
 3: dirに何も無かったら，puts以下を出力する
+
+dirsの中身が空なら"vasp~autosubmit~ \[DIR\] : like 'inner~relax-20~' or
+'inner~relax\*~'" を表示する
 
 
     Dir.glob(dirs).each do |dir|
@@ -72,3 +77,21 @@ Line: Result
 28: -hold~lid~...jobが終わるまで待機？
 
 Open3.capture3...指定されたコマンドを実行し、そのプロセスの標準出力と標準エラー、プロセスの終了ステータスを表すオブジェクトを返します。
+
+最初のnext unless文でinner~relaxを含んでいなかったらloop文を出る~
+
+含まれていたら，putsでそのディレクトリの名前を表示する．
+
+(each~withindexメソッドは~、要素の数だけブロックを繰り返し実行します。繰り返しごとにブロック引数targetには各要素が入り、iには0、1、2、...と番号が入ります。)
+
+pでtarget("run~relax1st~.sh","run~relax2nd~.sh",
+run~fix50~.sh","run~fix100~.sh")を出力する.
+
+if: iが0の場合，target(run~relax1st~)にジョブをキューに投下する．
+
+else:
+gsub!でrun~relax2nd~.shの中にある，IDの部分をidの配列に書き変えて，ジョブをキューに投下する．
+
+outをグリーンで表示し，matchでoutと（）の中身の一致している部分表示し，先ほど求めたidにm\[1\]を代入する．
+
+第２引数がモードを表していて，この場合だと，'a'が追加書き込みになっている．
