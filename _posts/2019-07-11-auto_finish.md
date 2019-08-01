@@ -35,4 +35,22 @@ Line: Result
 
 16: out:標準出力　err:標準エラー status:プロセスの終了ステータス
 
+17: コマンドを実行し、そのプロセスの標準出力と標準エラー、プ
+ロセスの終了ステータスを表すオブジェクトを返します。
+
 21: Rubyでディレクトリ内のファイルを処理する際、Dir.globを使います。
+
+まずinner~relaxと名前のついたディレクトリdirに入れる~．
+
+chdirでディレクトリをinner~relaxに切り替える~．
+
+targetでfix~100を指定する~．
+
+lastにtest.oの番号を一番大きい番号のものをpして，
+mkdirでfix~100の中にPOSCAR~ KPOINTS INCAR \#{last} fix~100~
+をコピーしてきて，それをcommandの中に入れる．
+
+エラーをout, err, ~status~ = Open3.capture3(command)でprint
+err.redを出力する．
+
+inner~relaxを赤字で表示~，そのディレクトリの中のtest.oをすべて表示する.

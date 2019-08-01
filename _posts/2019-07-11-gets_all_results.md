@@ -1,25 +1,20 @@
--.14676684E+03
+    #!/usr/bin/env ruby
 
--146.76684
-
-> ``` {.example}
-> require 'pp'  
-> require 'scanf'
-> def get_vals(dir) 
->   vals = []
->   Dir.glob(File.join(dir,'*.o*')).each do |file| 
->     m = File.read(file).scan(/E0= (.+) d/)
->     unless m!=[] # m=[]の時
->       p dir
->       next
->     else
->       vals << m[-1][0].scanf("%f")[0]
->     end
->   end
->   vals
-> end
->
-> ```
+    require 'pp'  
+    require 'scanf'
+    def get_vals(dir) 
+      vals = []
+      Dir.glob(File.join(dir,'*.o*')).each do |file| 
+        m = File.read(file).scan(/E0= (.+) d/)
+        unless m!=[] # m=[]の時
+          p dir
+          next
+        else
+          vals << m[-1][0].scanf("%f")[0]
+        end
+      end
+      vals
+    end
 
 list: result
 
@@ -63,3 +58,21 @@ line: result
 9: 配列の配列を平坦化した新しい配列を返す
 
 12: resultをソートする
+
+'relax~1st~','relax~2nd~','fix~1st~','fix~50~','fix~100~','fix~150~','fix~200~'をsourceに入れる．
+
+puts source+":=" で出力に””の中身を加えてる．
+
+Dir.glob('**/**')で今いるディレクトリの中のすべてをdirに入れる
+
+それがもし，sourceかdirを含んでいればif文の中に入る．
+
+filenameで１番最後の/にあるディレクトリ（inner~relax00~）をspilitで0と0の部分をddに代入している．
+
+先ほど代入したddの値２つをdd\[0\].to~f~, dd\[1\].to~fに代入する~．
+
+そしてvalsにgets~valsで取得したE0の値を一番右に入れる~．
+
+resultsにvalsを平坦化して代入．
+
+最後にppでresultsをソートして出力する．
